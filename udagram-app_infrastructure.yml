@@ -154,3 +154,10 @@ Resources:
         VpcId: 
           Fn::ImportValue:
             Fn::Sub: "${EnvironmentName}-VPCID"
+
+Outputs:
+    WebAppLB: 
+      Description: A reference to the web application load balancer
+      Value: !GetAtt WebAppLB.DNSName
+      Export:
+        Name: !Sub ${EnvironmentName}-ALB
