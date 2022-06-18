@@ -20,7 +20,7 @@ Resources:
       Properties:
         ManagedPolicyArns: 
           - "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
-          - "arn:aws:iam::aws:policy/AmazonSSMFullAccess"
+          - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
         AssumeRolePolicyDocument:
           Version: 2012-10-17
           Statement:
@@ -75,8 +75,8 @@ Resources:
           CidrIp: 0.0.0.0/0
         SecurityGroupEgress:
         - IpProtocol: tcp
-          FromPort: -1
-          ToPort: -1
+          FromPort: 0
+          ToPort: 65535
           CidrIp: 0.0.0.0/0
 
     WebAppLaunchConfig:
@@ -148,7 +148,7 @@ Resources:
         HealthCheckProtocol: HTTP
         HealthCheckTimeoutSeconds: 8
         HealthyThresholdCount: 2
-        Port: 8080
+        Port: 80
         Protocol: HTTP
         UnhealthyThresholdCount: 5
         VpcId: 
